@@ -53,7 +53,9 @@ function loginvalidation(){
   if(name == ""){
     error.innerText = "Username must be filled out";
     return false;
-  }if (password == ""){
+  }
+  
+  if (password == ""){
     error.innerText = "Password must not be empty";
     return false;
   }
