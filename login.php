@@ -17,10 +17,10 @@ function login(){
 	// log in user if the username and password find a match in the database
 	$result = $conn->query($sql);
 	if($result && mysqli_num_rows($result) > 0){
-	  $row = mysqli_fetch_assoc($result);
-	  $_SESSION["id"] = $row["UserName"]; 
-    	  $_SESSION["role"] = $row["Role"];
-	  header("Location:index.php");
+		$row = mysqli_fetch_assoc($result);
+	  	$_SESSION["id"] = $row["UserName"]; 
+    	  	$_SESSION["role"] = $row["Role"];
+	  	header("Location:index.php");
         }
 
 	// display error if no match
