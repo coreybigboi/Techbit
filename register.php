@@ -10,30 +10,30 @@ function register(){
 	
 	$username = htmlspecialchars($_POST["user"]);
 	$email = htmlspecialchars($_POST["email"]);
-    $phone = htmlspecialchars($_POST["phone"]);
+  $phone = htmlspecialchars($_POST["phone"]);
 	$password = htmlspecialchars($_POST["regpass"]);
 	$hashedPassword = crypt($password, '$1$kit202');
 	
 	$userSQL = "SELECT * FROM User WHERE Username='$username'";
-  	$emailSQL = "SELECT * FROM User WHERE EmailAddress='$email'";
+  $emailSQL = "SELECT * FROM User WHERE EmailAddress='$email'";
 
-  	$checkUser = mysqli_query($conn, $userSQL);
-  	$checkEmail = mysqli_query($conn, $emailSQL);
+  $checkUser = mysqli_query($conn, $userSQL);
+  $checkEmail = mysqli_query($conn, $emailSQL);
 
 	if (mysqli_num_rows($checkUser) > 0) {
-    	echo "<br>";	
-  	  	echo "<p style=\"color : red\" >Sorry, this username is already taken. Please select another one! </p>"; 	
-  	}
+    echo "<br>";	
+  	echo "<p style=\"color : red\" >Sorry, this username is already taken. Please select another one! </p>"; 	
+  }
 	else if(mysqli_num_rows($checkEmail) > 0){
-    	echo "<br>";	
-  		echo  "<p style=\"color : red\" > Sorry, this email address is already taken. Please select another one!</p>"; 	
-  	}
+    echo "<br>";	
+  	echo  "<p style=\"color : red\" > Sorry, this email address is already taken. Please select another one!</p>"; 	
+  }
 	else{
 		$sql = $sql = "INSERT INTO User (Username, EmailAddress, PhoneNumber, Password, Role) VALUES (\"$username\", \"$email\", \"$phone\", \"$hashedPassword\", \"Member\")";	
 		$conn->query($sql);
 		$conn->close();
 		header("Location: login.php");
-    }
+  }
 }
 
 register();

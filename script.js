@@ -10,34 +10,38 @@ function validateForm() {
   if (name == "") {
     errorMessage.innerText = "Username must be filled out";
     return false;
-  }if (email == "" ){
+  }
+  if (email == "" ){
     errorMessage.innerText = "Email must be filled out";
     return false;
-  } if(email.match(/[a-z0-9]+@[a-z]+/g) === null){
+  } 
+  if(email.match(/[a-z0-9]+@[a-z]+/g) === null){
     errorMessage.innerText = "Email must be a valid address";
     return false;
-  } if (phoneNumber == ""){
+  } 
+  if (phoneNumber == ""){
     errorMessage.innerText = "Phone number must be filled out";
     return false;
-  }if (phoneNumber.match(/^[0-9]*$/g) === null){
+  }
+  if (phoneNumber.match(/^[0-9]*$/g) === null){
     errorMessage.innerText = "Phone number must only contain numbers";
     return false;
-  }if (password == ""){
+  }
+  if (password == ""){
     errorMessage.innerText = "Password must not be empty";
     return false;
-  }if (confirmPassword !== password){
+  }
+  if (confirmPassword !== password){
     errorMessage.innerText = "Passwords must match";
     return false;
   } 
-  if (password.match(/[A-Z]/g) && password.match(/[a-z]/g) && password.match(/[0-9]/g) && password.match(/[^a-zA-Z\d]/g) && password.length > 7)
-    {
-      return true;
-    }
-    else 
-    {
-      errorMessage.innerText = "Password must be at least 8 characters long and contain at least 1 symbol, 1 number, 1 uppercase letter and 1 lowercase letter";
-      return false;
-    }
+  if (password.match(/[A-Z]/g) && password.match(/[a-z]/g) && password.match(/[0-9]/g) && password.match(/[^a-zA-Z\d]/g) && password.length > 7){
+    return true;
+  }
+  else{
+    errorMessage.innerText = "Password must be at least 8 characters long and contain at least 1 symbol, 1 number, 1 uppercase letter and 1 lowercase letter";
+    return false;
+  }
   
 }
 
